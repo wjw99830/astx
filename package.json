@@ -1,0 +1,9 @@
+{
+  "name": "astx",
+  "devDependencies": {
+    "typescript": "4.x"
+  },
+  "dependencies": {
+    "@babel/types": "7.x"
+  }
+}
