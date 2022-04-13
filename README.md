@@ -1,8 +1,19 @@
-# astx
+# ast.jsx
 
 Write AST by JSX.
 
 ## Usage
+
+```jsonc
+// tsconfig.json
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "ast.jsx",
+  }
+}
+
+```
 
 ```tsx
 import g from '@babel/generator';
