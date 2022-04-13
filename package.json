@@ -1,5 +1,14 @@
 {
-  "name": "astx",
+  "name": "ast.jsx",
+  "keywords": [
+    "jsx",
+    "ast",
+    "ast.jsx"
+  ],
+  "version": "0.0.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
     "@babel/generator": "7.x",
     "@types/babel__generator": "^7.6.4",
@@ -7,5 +16,11 @@
   },
   "dependencies": {
     "@babel/types": "7.x"
-  }
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && tsc"
+  },
+  "files": [
+    "jsx-runtime"
+  ]
 }

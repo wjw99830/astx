@@ -1,6 +1,35 @@
 import g from '@babel/generator';
 import * as t from '@babel/types';
 
+export const variableDeclaration = (
+  <variable-declaration kind="const">
+    <variable-declarator id={<identifier>variableDeclaration</identifier>}>
+      <PlainJSXElement
+        tag="variable-declaration"
+        attributes={{ kind: 'const' }}
+      >
+        <PlainJSXElement
+          tag="variable-declarator"
+          attributes={{
+            id: (
+              <PlainJSXElement tag="identifier">
+                variableDeclaration
+              </PlainJSXElement>
+            ),
+          }}
+        />
+      </PlainJSXElement>
+    </variable-declarator>
+  </variable-declaration>
+);
+
+console.log(g(variableDeclaration).code);
+// const variableDeclaration = (
+//   <variable-declaration kind="const">
+//     <variable-declarator id={<identifier>variableDeclaration</identifier>} />
+//   </variable-declaration>
+// );
+
 function PlainJSXElement(props: {
   tag: string;
   attributes?: Record<string, string | true | t.Expression>;
@@ -65,27 +94,3 @@ function PlainJSXElement(props: {
     );
   }
 }
-
-export const variableDeclaration = (
-  <variable-declaration kind="const">
-    <variable-declarator id={<identifier>variableDeclaration</identifier>}>
-      <PlainJSXElement
-        tag="variable-declaration"
-        attributes={{ kind: 'const' }}
-      >
-        <PlainJSXElement
-          tag="variable-declarator"
-          attributes={{
-            id: (
-              <PlainJSXElement tag="identifier">
-                variableDeclaration
-              </PlainJSXElement>
-            ),
-          }}
-        />
-      </PlainJSXElement>
-    </variable-declarator>
-  </variable-declaration>
-);
-
-console.log(g(variableDeclaration).code);
