@@ -64,6 +64,49 @@ export function jsx<T extends keyof JSX.IntrinsicElements>(
       const _props = props as JSX.IntrinsicElements['break-statement'];
       return t.breakStatement(_props.children);
     }
+    case 'jsx-element': {
+      const _props = props as JSX.IntrinsicElements['jsx-element'];
+      return t.jsxElement(
+        _props.openingElement,
+        _props.closeingElement,
+        _props.children
+          ? [_props.children as ExtractArrayItem<t.JSXElement['children']>]
+          : [],
+        _props.selfClosing
+      );
+    }
+    case 'jsx-opening-element': {
+      const _props = props as JSX.IntrinsicElements['jsx-opening-element'];
+      return t.jsxOpeningElement(
+        _props.children,
+        _props.attributes || [],
+        _props.selfClosing
+      );
+    }
+    case 'jsx-closing-element': {
+      const _props = props as JSX.IntrinsicElements['jsx-closing-element'];
+      return t.jsxClosingElement(_props.children);
+    }
+    case 'jsx-identifier': {
+      const _props = props as JSX.IntrinsicElements['jsx-identifier'];
+      return t.jsxIdentifier(_props.children);
+    }
+    case 'jsx-attribute': {
+      const _props = props as JSX.IntrinsicElements['jsx-attribute'];
+      return t.jsxAttribute(_props.name, _props.children);
+    }
+    case 'jsx-text': {
+      const _props = props as JSX.IntrinsicElements['jsx-attribute'];
+      return t.jsxText(_props.children);
+    }
+    case 'string-literal': {
+      const _props = props as JSX.IntrinsicElements['string-literal'];
+      return t.stringLiteral(_props.children || '');
+    }
+    case 'jsx-expression-container': {
+      const _props = props as JSX.IntrinsicElements['jsx-expression-container'];
+      return t.jsxExpressionContainer(_props.children);
+    }
   }
 }
 
@@ -164,6 +207,38 @@ export declare namespace JSX {
     };
     'break-statement': {
       children?: t.BreakStatement['label'];
+    };
+    'jsx-element': {
+      openingElement: t.JSXElement['openingElement'];
+      closeingElement?: t.JSXElement['closingElement'];
+      children?:
+        | t.JSXElement['children']
+        | ExtractArrayItem<t.JSXElement['children']>;
+      selfClosing?: boolean;
+    };
+    'jsx-opening-element': {
+      children: t.JSXOpeningElement['name'];
+      selfClosing?: boolean;
+      attributes?: t.JSXOpeningElement['attributes'];
+    };
+    'jsx-closing-element': {
+      children: t.JSXClosingElement['name'];
+    };
+    'jsx-identifier': {
+      children: string;
+    };
+    'jsx-attribute': {
+      name: t.JSXAttribute['name'];
+      children: t.JSXAttribute['value'];
+    };
+    'jsx-expression-container': {
+      children: t.JSXExpressionContainer['expression'];
+    };
+    'jsx-text': {
+      children: t.JSXText['value'];
+    };
+    'string-literal': {
+      children?: t.StringLiteral['value'];
     };
   }
 }

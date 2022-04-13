@@ -1,3 +1,10 @@
+# astx
+
+Write AST by JSX.
+
+## Usage
+
+```tsx
 import g from '@babel/generator';
 
 export const variableDeclaration = (
@@ -60,3 +67,12 @@ export const variableDeclaration = (
 );
 
 console.log(g(variableDeclaration).code);
+// The formatted output:
+// const variableDeclaration = (
+//   <variable-declaration kind="const">
+//     <variable-declarator
+//       id={<identifier>variableDeclaration</identifier>}
+//     ></variable-declarator>
+//   </variable-declaration>
+// );
+```
