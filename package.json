@@ -10,14 +10,15 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "typescript": "4.x"
+    "typescript": "~4.9.5"
   },
   "dependencies": {
-    "@babel/types": "7.x"
+    "@babel/types": "~7.21.3"
   },
   "scripts": {
     "dev": "cd demo && pnpm dev",
-    "build": "rm -rf ./jsx-runtime && tsc"
+    "build": "rm -rf ./jsx-runtime && tsc",
+    "test": "pnpm build && pnpm dev"
   },
   "files": [
     "jsx-runtime"
