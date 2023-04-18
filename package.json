@@ -18,7 +18,9 @@
   "scripts": {
     "dev": "cd demo && pnpm dev",
     "build": "rm -rf ./jsx-runtime && tsc",
-    "test": "pnpm build && pnpm dev"
+    "test": "pnpm build && pnpm dev",
+    "preversion": "pnpm build",
+    "postversion": "pnpm publish"
   },
   "files": [
     "jsx-runtime"
