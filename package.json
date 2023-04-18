@@ -10,7 +10,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "typescript": "~4.9.5"
+    "typescript": "5.0.4"
   },
   "dependencies": {
     "@babel/types": "~7.21.3"

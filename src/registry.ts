@@ -1,4 +1,5 @@
 import * as t from '@babel/types';
+import { attach } from './utils';
 
 export namespace Registry {
   type Builder<T = any> = (props: T) => t.Node;
@@ -24,6 +25,10 @@ export namespace Registry {
       throw new Error(`unexpected tag(${tag}), missing factory`);
     }
 
-    return factory(props);
+    const node = factory(props);
+    if (props.attach) {
+      attach(node, props.attach);
+    }
+    return node;
   }
 }
