@@ -63,7 +63,7 @@ const callExpression = (
 );
 print(callExpression);
 
-console.log('statement');
+console.log('if statement');
 print(
   <program>
     <if-statement>

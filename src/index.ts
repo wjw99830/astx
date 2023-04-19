@@ -18,7 +18,12 @@ export function jsx<T extends keyof JSX.IntrinsicElements | Component>(
 
   const node = tag(props);
   if (props.attach) {
-    attach(node, props.attach);
+    const children = toArray(node);
+    for (const it of children) {
+      if (t.isNode(it)) {
+        attach(it, props.attach);
+      }
+    }
   }
   return node;
 }
